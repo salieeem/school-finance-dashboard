@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Keuangan Sekolah - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="nav-item active" data-page="home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" data-page="siswa">
+            <i class="fas fa-users"></i>
+            <span>Siswa</span>
+        </div>
+        <div class="nav-item" data-page="pemasukan">
+            <i class="fas fa-arrow-up"></i>
+            <span>Pemasukan</span>
+        </div>
+        <div class="nav-item" data-page="pengeluaran">
+            <i class="fas fa-arrow-down"></i>
+            <span>Pengeluaran</span>
+        </div>
+        <div class="nav-item" data-page="laporan">
+            <i class="fas fa-chart-bar"></i>
+            <span>Laporan</span>
+        </div>
+        <div class="nav-item" data-page="profile">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </div>
+    </div>
+
+    <!-- Desktop Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Sekolah Finance</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-link" data-page="siswa">
+                <i class="fas fa-users"></i>
+                <span>Data Siswa</span>
+            </a>
+            <a href="#" class="nav-link" data-page="pemasukan">
+                <i class="fas fa-arrow-up"></i>
+                <span>Pemasukan</span>
+            </a>
+            <a href="#" class="nav-link" data-page="pengeluaran">
+                <i class="fas fa-arrow-down"></i>
+                <span>Pengeluaran</span>
+            </a>
+            <a href="#" class="nav-link" data-page="laporan">
+                <i class="fas fa-chart-bar"></i>
+                <span>Laporan</span>
+            </a>
+            <a href="#" class="nav-link" data-page="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="page-title">Dashboard Keuangan</h1>
+                <div class="header-actions">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-info">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="user-avatar">
+                        <span class="user-name">salieeem</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="page-content">
+            <!-- Home Page -->
+            <div class="page" id="home-page">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon pemasukan">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Pemasukan</h3>
+                            <p class="stat-value">Rp 150.000.000</p>
+                            <small>+12% dari bulan lalu</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pengeluaran">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Pengeluaran</h3>
+                            <p class="stat-value">Rp 85.000.000</p>
+                            <small>-5% dari bulan lalu</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon siswa">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Siswa</h3>
+                            <p class="stat-value">1,250</p>
+                            <small>+35 siswa baru</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon saldo">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Saldo Tersedia</h3>
+                            <p class="stat-value">Rp 65.000.000</p>
+                            <small>Status: Sehat</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-section">
+                    <div class="chart-card">
+                        <h3>Grafik Keuangan Bulanan</h3>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Grafik akan ditampilkan di sini</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Siswa Page -->
+            <div class="page hidden" id="siswa-page">
+                <div class="page-header">
+                    <h2>Data Siswa</h2>
+                    <div class="header-actions-group">
+                        <button class="btn btn-secondary" id="import-siswa-btn">
+                            <i class="fas fa-file-import"></i>
+                            Import Excel
+                        </button>
+                        <button class="btn btn-primary" id="add-siswa-btn">
+                            <i class="fas fa-plus"></i>
+                            Tambah Siswa
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Cari nama siswa, NIS, atau kelas..." id="search-siswa">
+                        </div>
+                        <select class="form-select" id="filter-kelas">
+                            <option value="">Semua Kelas</option>
+                            <option value="10">Kelas 10</option>
+                            <option value="11">Kelas 11</option>
+                            <option value="12">Kelas 12</option>
+                        </select>
+                        <select class="form-select" id="filter-status">
+                            <option value="">Semua Status</option>
+                            <option value="aktif">Aktif</option>
+                            <option value="tidak-aktif">Tidak Aktif</option>
+                            <option value="lulus">Lulus</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Student Stats -->
+                <div class="student-stats">
+                    <div class="stat-mini">
+                        <div class="stat-mini-icon aktif">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-mini-content">
+                            <span class="stat-mini-label">Siswa Aktif</span>
+                            <span class="stat-mini-value">1,180</span>
+                        </div>
+                    </div>
+                    <div class="stat-mini">
+                        <div class="stat-mini-icon tunggakan">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-mini-content">
+                            <span class="stat-mini-label">Ada Tunggakan</span>
+                            <span class="stat-mini-value">25</span>
+                        </div>
+                    </div>
+                    <div class="stat-mini">
+                        <div class="stat-mini-icon lunas">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-mini-content">
+                            <span class="stat-mini-label">Lunas</span>
+                            <span class="stat-mini-value">1,155</span>
+                        </div>
+                    </div>
+                    <div class="stat-mini">
+                        <div class="stat-mini-icon lulus">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-mini-content">
+                            <span class="stat-mini-label">Lulus</span>
+                            <span class="stat-mini-value">70</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Table -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="select-all-siswa">
+                                </th>
+                                <th>NIS</th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
+                                <th>Status SPP</th>
+                                <th>Tunggakan</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-table-body">
+                            <tr>
+                                <td><input type="checkbox" class="student-checkbox"></td>
+                                <td>2024001</td>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Avatar" class="student-avatar">
+                                        <div>
+                                            <div class="student-name">Ahmad Rizki</div>
+                                            <div class="student-email">ahmad.rizki@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="kelas-badge">10A</span></td>
+                                <td><span class="status-badge lunas">Lunas</span></td>
+                                <td>Rp 0</td>
+                                <td><span class="status-badge aktif">Aktif</span></td>
+                                <td>
+                                    <button class="btn-icon view" title="Lihat Detail">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon delete" title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="student-checkbox"></td>
+                                <td>2024002</td>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Avatar" class="student-avatar">
+                                        <div>
+                                            <div class="student-name">Siti Fatimah</div>
+                                            <div class="student-email">siti.fatimah@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="kelas-badge">10B</span></td>
+                                <td><span class="status-badge tunggakan">Tunggakan</span></td>
+                                <td>Rp 1.500.000</td>
+                                <td><span class="status-badge aktif">Aktif</span></td>
+                                <td>
+                                    <button class="btn-icon view" title="Lihat Detail">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon delete" title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="student-checkbox"></td>
+                                <td>2024003</td>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Avatar" class="student-avatar">
+                                        <div>
+                                            <div class="student-name">Budi Santoso</div>
+                                            <div class="student-email">budi.santoso@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="kelas-badge">11A</span></td>
+                                <td><span class="status-badge lunas">Lunas</span></td>
+                                <td>Rp 0</td>
+                                <td><span class="status-badge aktif">Aktif</span></td>
+                                <td>
+                                    <button class="btn-icon view" title="Lihat Detail">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon delete" title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="student-checkbox"></td>
+                                <td>2023001</td>
+                                <td>
+                                    <div class="student-info">
+                                        <img src="https://via.placeholder.com/32" alt="Avatar" class="student-avatar">
+                                        <div>
+                                            <div class="student-name">Dewi Lestari</div>
+                                            <div class="student-email">dewi.lestari@email.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="kelas-badge">12A</span></td>
+                                <td><span class="status-badge lunas">Lunas</span></td>
+                                <td>Rp 0</td>
+                                <td><span class="status-badge lulus">Lulus</span></td>
+                                <td>
+                                    <button class="btn-icon view" title="Lihat Detail">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon edit" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon delete" title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <div class="pagination-info">
+                        Menampilkan 1-4 dari 1,250 siswa
+                    </div>
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">...</button>
+                        <button class="pagination-btn">313</button>
+                        <button class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pemasukan Page -->
+            <div class="page hidden" id="pemasukan-page">
+                <div class="page-header">
+                    <h2>Data Pemasukan</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Pemasukan
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Kategori</th>
+                                <th>Deskripsi</th>
+                                <th>Jumlah</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-07-10</td>
+                                <td>SPP</td>
+                                <td>Pembayaran SPP Juli</td>
+                                <td>Rp 50.000.000</td>
+                                <td>
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-08</td>
+                                <td>Donasi</td>
+                                <td>Donasi dari Alumni</td>
+                                <td>Rp 25.000.000</td>
+                                <td>
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pengeluaran Page -->
+            <div class="page hidden" id="pengeluaran-page">
+                <div class="page-header">
+                    <h2>Data Pengeluaran</h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Tambah Pengeluaran
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Kategori</th>
+                                <th>Deskripsi</th>
+                                <th>Jumlah</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-07-09</td>
+                                <td>Operasional</td>
+                                <td>Pembelian Alat Tulis</td>
+                                <td>Rp 5.000.000</td>
+                                <td>
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2025-07-07</td>
+                                <td>Gaji</td>
+                                <td>Gaji Guru Juli</td>
+                                <td>Rp 30.000.000</td>
+                                <td>
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Laporan Page -->
+            <div class="page hidden" id="laporan-page">
+                <div class="page-header">
+                    <h2>Laporan Keuangan</h2>
+                    <div class="filter-group">
+                        <select class="form-select">
+                            <option>Bulan ini</option>
+                            <option>3 Bulan terakhir</option>
+                            <option>6 Bulan terakhir</option>
+                            <option>1 Tahun terakhir</option>
+                        </select>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Export PDF
+                        </button>
+                    </div>
+                </div>
+                <div class="report-summary">
+                    <div class="summary-card">
+                        <h3>Ringkasan Bulan Ini</h3>
+                        <div class="summary-item">
+                            <span>Total Pemasukan:</span>
+                            <strong>Rp 150.000.000</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total Pengeluaran:</span>
+                            <strong>Rp 85.000.000</strong>
+                        </div>
+                        <div class="summary-item profit">
+                            <span>Keuntungan:</span>
+                            <strong>Rp 65.000.000</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="page hidden" id="profile-page">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-image">
+                        <div class="profile-info">
+                            <h2>salieeem</h2>
+                            <p>salieeem@sekolah.ac.id</p>
+                            <span class="role-badge">Super Admin</span>
+                        </div>
+                    </div>
+                    <div class="profile-form">
+                        <form>
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" class="form-control" value="salieeem">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" value="salieeem@sekolah.ac.id">
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Telepon</label>
+                                <input type="tel" class="form-control" value="+62 812-3456-7890">
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <textarea class="form-control" rows="3">Jl. Pendidikan No. 123, Jakarta</textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                <button type="button" class="btn btn-secondary">Ubah Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
